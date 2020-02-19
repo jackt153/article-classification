@@ -1,0 +1,4 @@
+seaborn==0.9.0
+plotly==4.4.1
+black==19.10b0
+jupyterlab==1.2.4
