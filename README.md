@@ -30,7 +30,7 @@ conda deactivate
 ```
 
 ### Installing the required python packages
-The required Python packages are contained in the `requirements.txt` and the `dev-requirements.txt` files. However, we also require have common utility modules that the rest of the code in the repository depends on. These are contained in the `common_utils` folder in the root directory. We need to ensure that all scripts in the repo can see this, hence we've created a `setup.py` script that finds this `common_utils` directory and treats it as an internal package.
+The required Python packages are contained in the `requirements.txt` and the `dev-requirements.txt` files. However, we also require have common utility modules that the rest of the code in the repository depends on. These are contained in the `utils` folder in the root directory. We need to ensure that all scripts in the repo can see this, hence we've created a `setup.py` script that finds this `utils` directory and treats it as an internal package.
 
 To ensure that you get all the required packages (including the `common_utils` package) you can run the following commands from the root directory AFTER you've activated your virtural environment (using a virtual environment is highly recommended):
 ```
