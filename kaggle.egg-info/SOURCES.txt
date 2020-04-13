@@ -7,3 +7,6 @@ kaggle.egg-info/not-zip-safe
 kaggle.egg-info/requires.txt
 kaggle.egg-info/top_level.txt
 utils/__init__.py
+utils/logging_config.py
+utils/rx_embedding_creation.py
+utils/string_clean.py
