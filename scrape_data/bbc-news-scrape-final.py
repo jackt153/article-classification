@@ -3,14 +3,15 @@ import time
 
 from urllib.request import urlopen
 from bs4 import BeautifulSoup
+from pathlib import Path
+import datetime
 
 from utils.logging_config import get_logger
 
 logger = get_logger()
 
-
-# -
-
+HOME_PATH = Path.home()
+PATH_TO_SCRAPED_DATA = 'art_data/scraped_data'
 # ### BBC News Main Page
 
 
@@ -87,4 +88,9 @@ for main_page in main_pages:
 
 if len(full_list) > 0:
     df = pd.DataFrame(full_list, columns=["link", "title", "article"])
-    df.to_csv("temp.csv", index=False)
+
+    df["create_date"] = pd.to_datetime("today")
+    df["create_date"] = df["create_date"].dt.strftime("%m-%d-%Y %H:%M:%S")
+    df["create_date"] = pd.to_datetime(df["create_date"])
+
+    df.to_csv(HOME_PATH/PATH_TO_SCRAPED_DATA/ f'bbc_scrape_{str(datetime.date.today())}.csv', index=False)

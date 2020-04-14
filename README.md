@@ -1,6 +1,6 @@
-# Kaggle
+# article-classification
 
-This is our repo for our kaggle competition code. This is mainly so we can all learn from each other. Its not all about what metric we maxmise but best practices when writing code to help us further our careers.
+This is my own project in which I will scrape articles from popular news sites (where legal) and classify them using a ML model. The intended goal will be to get this up and running on a small ubuntu machine with kubemeters and a small SQL database.
 
 ### Creating a virtual environment (with Conda)
 It's typically best practice to use a virtual environment. There are different options for this including:
@@ -13,7 +13,7 @@ Feel free to use the virtual enviroment of your choice. Here's how to set up a C
 
 Where `[ENVIRONMENT_NAME]` is replaced with whatever name you'd like to use for the environment. I've called my environment `kaggle` so the command I used was:
 ```
-conda create -n kaggle python=3.7 pip
+conda create -n art-class python=3.7 pip
 ```
 This command creates an environment with Python 3.7 and also installs `pip`.
 
