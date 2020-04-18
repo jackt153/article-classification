@@ -1,6 +1,8 @@
 import pandas as pd
 import time
+import datetime
 
+from pathlib import Path
 from urllib.request import urlopen
 from bs4 import BeautifulSoup
 
@@ -9,6 +11,8 @@ from utils.logging_config import get_logger
 logger = get_logger()
 
 
+HOME_PATH = Path.home()
+PATH_TO_SCRAPED_DATA = 'art_data/scraped_data'
 # -
 
 # ### BBC News Main Page
@@ -26,16 +30,16 @@ def getAndParseURL(url: str) -> BeautifulSoup:
 
 main_pages = [
     "https://www.bbc.co.uk/news",
-    "https://www.bbc.co.uk/news/coronavirus",
-    "https://www.bbc.co.uk/news/uk",
-    "https://www.bbc.co.uk/news/world",
-    "https://www.bbc.co.uk/news/business",
-    "https://www.bbc.co.uk/news/politics",
-    "https://www.bbc.co.uk/news/technology",
-    "https://www.bbc.co.uk/news/science_and_environment",
-    "https://www.bbc.co.uk/news/health",
-    "https://www.bbc.co.uk/news/education",
-    "https://www.bbc.co.uk/news/entertainment_and_arts",
+    # "https://www.bbc.co.uk/news/coronavirus",
+    # "https://www.bbc.co.uk/news/uk",
+    # "https://www.bbc.co.uk/news/world",
+    # "https://www.bbc.co.uk/news/business",
+    # "https://www.bbc.co.uk/news/politics",
+    # "https://www.bbc.co.uk/news/technology",
+    # "https://www.bbc.co.uk/news/science_and_environment",
+    # "https://www.bbc.co.uk/news/health",
+    # "https://www.bbc.co.uk/news/education",
+    # "https://www.bbc.co.uk/news/entertainment_and_arts",
 ]
 
 full_list = []
@@ -87,4 +91,9 @@ for main_page in main_pages:
 
 if len(full_list) > 0:
     df = pd.DataFrame(full_list, columns=["link", "title", "article"])
-    df.to_csv("temp.csv", index=False)
+
+    df["create_date"] = pd.to_datetime("today")
+    df["create_date"] = df["create_date"].dt.strftime("%m-%d-%Y %H:%M:%S")
+    df["create_date"] = pd.to_datetime(df["create_date"])
+
+    df.to_csv(HOME_PATH/PATH_TO_SCRAPED_DATA/ f'bbc_scrape_{str(datetime.date.today())}.csv', index=False)
