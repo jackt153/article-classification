@@ -30,16 +30,16 @@ def getAndParseURL(url: str) -> BeautifulSoup:
 
 main_pages = [
     "https://www.bbc.co.uk/news",
-    # "https://www.bbc.co.uk/news/coronavirus",
-    # "https://www.bbc.co.uk/news/uk",
-    # "https://www.bbc.co.uk/news/world",
-    # "https://www.bbc.co.uk/news/business",
-    # "https://www.bbc.co.uk/news/politics",
-    # "https://www.bbc.co.uk/news/technology",
-    # "https://www.bbc.co.uk/news/science_and_environment",
-    # "https://www.bbc.co.uk/news/health",
-    # "https://www.bbc.co.uk/news/education",
-    # "https://www.bbc.co.uk/news/entertainment_and_arts",
+    "https://www.bbc.co.uk/news/coronavirus",
+    "https://www.bbc.co.uk/news/uk",
+    "https://www.bbc.co.uk/news/world",
+    "https://www.bbc.co.uk/news/business",
+    "https://www.bbc.co.uk/news/politics",
+    "https://www.bbc.co.uk/news/technology",
+    "https://www.bbc.co.uk/news/science_and_environment",
+    "https://www.bbc.co.uk/news/health",
+    "https://www.bbc.co.uk/news/education",
+    "https://www.bbc.co.uk/news/entertainment_and_arts",
 ]
 
 full_list = []
@@ -86,6 +86,7 @@ for main_page in main_pages:
 
             except Exception as e:
                 logger.error(f"could not load article: {e}")
+
     except Exception as e:
         logger.error(f"{e}")
 
