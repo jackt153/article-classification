@@ -1,4 +1,4 @@
-jupyterlab==1.2.4
+jupyterlab==1.2.21
 jupyter-nbextensions-configurator==0.4.1
 jupyterlab-code-formatter==1.0.3
 jupytext==1.3.2
